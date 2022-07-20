@@ -36,6 +36,29 @@ main{
     min-height: 100%;
 }
 
+section#temas{
+    max-width: 300px;
+    padding: 5px;
+    margin: auto;
+    border-radius: 3px;
+}
+
+section#temas > h1{
+    font-size: 1.3em;
+}
+
+section#temas:hover{
+    background-color: lightgray;
+}
+
+section#temas > div{
+    display: none;
+}
+
+section#temas:hover > div{
+    display: block;
+}
+
 section.exibir{
     max-width: 900px;
     margin: auto;

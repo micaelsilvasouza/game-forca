@@ -45,16 +45,27 @@ let palavra = ""
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let image = document.createElement("img")
 let list_img = ["cabeça","olho-esquerdo","olho-direito","boca","corpo","braço-esquerdo","braço-direito","perna-esquerda"]
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let sec_tema = document.createElement("section")
+sec_tema.setAttribute("id","temas")
+sec_tema.innerHTML = "<h1>Temas:</h1>"
+let div_tema = document.createElement("div")
+let inp_alterar = document.createElement("input")
+inp_alterar.setAttribute("type","button")
+inp_alterar.setAttribute("value","ALTERAR")
+
+for(let i = 0; i < 5; i++){
+    let radio = document.createElement("input")
+    radio.setAttribute("type", "radio")
+    radio.setAttribute("name", "tema")
+    div_tema.appendChild(radio)
+    div_tema.innerHTML += `TEMA ${i}` 
+}
+div_tema.appendChild(inp_alterar)
+sec_tema.appendChild(div_tema)
 ///////////////////////////////////fuçoes/////////////////////////////////////
 /*Create: pega as variaveis acima e cria a visualização das informações e adiciona no body atravez do event onload()*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function Emb(string){
-    let newstring = ""
-    for(let l of string){
-        newstring += (alfa.indexOf(l) + 1) + "-"
-    }
-    return newstring
-}
 function Create(){
     sec_usadas.innerHTML = "<strong>Letras usadas:</strong> "
     image.setAttribute("src","imagens/forca.jpg")
@@ -68,7 +79,6 @@ function Create(){
     paragrafo.innerHTML = "Click em uma das letra disponiveis, para ver se tem nessa palavra."
     let ale = Math.floor(Math.random() * palavras.length)
     palavra = palavras[ale]
-    console.log(Emb(palavra))
     //letras do alfabeto em input/buttons
     for(let l of alfa){
         let inp_letra = document.createElement("input")
@@ -105,6 +115,7 @@ function Create(){
     let main = document.getElementById("jogo")
     main.innerHTML = ""
     main.innerHTML += "<h1>Jogo da Forca</h1>"
+    main.appendChild(sec_tema)
     main.appendChild(sec_usadas)
     main.appendChild(sec_palavra)
     main.appendChild(sec_alfa)
