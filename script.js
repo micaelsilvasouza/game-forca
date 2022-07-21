@@ -39,8 +39,12 @@ sec_palavra.setAttribute("class", "exibir")
 
 ///////////////////////////////////////////////////////////////////////////////
 /*selecionando a palavra aleatoria*/
-let palavras = ["Luta","Futebol","Corrida","Tiro","fortnite","cuphead","cj","kratos","gta","mario","sonic","dinheiro","carro","casa","sertanejo","Amarelo","amigo","amor","ave","avião","avó","balão","bolo","branco","cama","caneca","celular","céu","clube","copo","doce","elefante","escola","estojo","faca","foto","garfo","geleia","girafa","janela","limonada","mãe","meia","noite","óculos","ônibus","ovo","pai","peixe","parque","passaro","passarinho","pijama","rato","umbigo","acender","afilhado","agnóstico","áspero","assombração","asterisco","balaústre","caminho","champanhe","chiclete","chuveiro","coelho","contexto","covivência","coração","desalmado","eloquente","esfirra","esquerdo","exceção","filantropo","fugaz","feroz","frio","quente","congelado","derretido","resfriado","gripe","doente","gororroba","heterossexual","horrorizado","impacto","inócuo","independência","jocoso","laurel","asas","anjo","modernidade","oftalmologista","Otorrinolaringologista","panaceia","paralelepípedo","pororoca","prognóstico","quarentena","quimera","reportagem","sino","taciturno","temperança","tênue","ufanismo","viscera","absonâcia","açodamento","alvíssaras","astenia","babugem","beneplácito","cinesia","duidade","encômio","econômico","emprestimo","empoderar","empoderamento","empedernido","fleumático","gorjeta","gorjear","homizio","lancinante","macambúzio","mendocioso","nefelibata","odiento","ódio","pódio","troféu","apaixonar","jurar","amar","beijar","prejuízo","prejudicado","pacóvio","quintenssência","indêcencia","recôndito","ruflão","refrão","música","ouvir","escutar","cantar","dançar","sectário","útero","úbere","urze","vitupério","verossimilhança","xaropear","zênite","zeugma","xarope","zebra","player","game","afobado","amendoim","banheiro","caatinga","cachorro","campeonato","capricórnio","catapora","corrupção","crepúsculo","empenhado","esparadrapo","quardanpo","forca","galáxia","história","magenta","manjericão","mente","menta","moeda","oração","paçoca","palavra","vara","pedreiro","verbo","substantivo","pronome","adjetivo","conjunção","conectivo","conectado","interligado","gafanhoto","google","programar","digitar","criar","desenbolver","javascript","pytom","pneumonia","pneu","pulmão","rotatória","lombada","placa","motor","serenata","viola","violão","transeunte","trilogia","xicara"]
-console.log(palavras.length)
+let palavras = {
+    aleatorio: ["Luta","Futebol","Corrida","Tiro","fortnite","cuphead","cj","kratos","gta","mario","sonic","dinheiro","carro","casa","sertanejo","Amarelo","amigo","amor","ave","avião","avó","balão","bolo","branco","cama","caneca","celular","céu","clube","copo","doce","elefante","escola","estojo","faca","foto","garfo","geleia","girafa","janela","limonada","mãe","meia","noite","óculos","ônibus","ovo","pai","peixe","parque","passaro","passarinho","pijama","rato","umbigo","acender","afilhado","agnóstico","áspero","assombração","asterisco","balaústre","caminho","champanhe","chiclete","chuveiro","coelho","contexto","covivência","coração","desalmado","eloquente","esfirra","esquerdo","exceção","filantropo","fugaz","feroz","frio","quente","congelado","derretido","resfriado","gripe","doente","gororroba","heterossexual","horrorizado","impacto","inócuo","independência","jocoso","laurel","asas","anjo","modernidade","oftalmologista","Otorrinolaringologista","panaceia","paralelepípedo","pororoca","prognóstico","quarentena","quimera","reportagem","sino","taciturno","temperança","tênue","ufanismo","viscera","absonâcia","açodamento","alvíssaras","astenia","babugem","beneplácito","cinesia","duidade","encômio","econômico","emprestimo","empoderar","empoderamento","empedernido","fleumático","gorjeta","gorjear","homizio","lancinante","macambúzio","mendocioso","nefelibata","odiento","ódio","pódio","troféu","apaixonar","jurar","amar","beijar","prejuízo","prejudicado","pacóvio","quintenssência","indêcencia","recôndito","ruflão","refrão","música","ouvir","escutar","cantar","dançar","sectário","útero","úbere","urze","vitupério","verossimilhança","xaropear","zênite","zeugma","xarope","zebra","player","game","afobado","amendoim","banheiro","caatinga","cachorro","campeonato","capricórnio","catapora","corrupção","crepúsculo","empenhado","esparadrapo","quardanpo","forca","galáxia","história","magenta","manjericão","mente","menta","moeda","oração","paçoca","palavra","vara","pedreiro","verbo","substantivo","pronome","adjetivo","conjunção","conectivo","conectado","interligado","gafanhoto","google","programar","digitar","criar","desenvolver","javascript","pytom","pneumonia","pneu","pulmão","rotatória","lombada","placa","motor","serenata","viola","violão","transeunte","trilogia","xicara"],
+    animais: ["Animais"],
+    objetos: ["objetos"]
+}
+let list_temas = ["aleatorio","objetos","animais"]
 let palavra = ""
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let image = document.createElement("img")
@@ -48,22 +52,45 @@ let list_img = ["cabeça","olho-esquerdo","olho-direito","boca","corpo","braço-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let sec_tema = document.createElement("section")
 sec_tema.setAttribute("id","temas")
-sec_tema.innerHTML = "<h1>Temas:</h1>"
+
 let div_tema = document.createElement("div")
 let inp_alterar = document.createElement("input")
 inp_alterar.setAttribute("type","button")
 inp_alterar.setAttribute("value","ALTERAR")
-
-for(let i = 0; i < 5; i++){
+inp_alterar.setAttribute("onclick", "alterar()")
+let ul_tema = document.createElement("ul")
+for(let i = 0; i < list_temas.length; i++){
+    let li = document.createElement("li")
     let radio = document.createElement("input")
     radio.setAttribute("type", "radio")
     radio.setAttribute("name", "tema")
-    div_tema.appendChild(radio)
-    div_tema.innerHTML += `TEMA ${i}` 
+    radio.setAttribute("value", list_temas[i])
+    if(i == 0){
+        radio.checked
+    }
+    li.appendChild(radio)
+    li.innerHTML += list_temas[i].toUpperCase()
+    ul_tema.appendChild(li)
 }
+div_tema.appendChild(ul_tema)
 div_tema.appendChild(inp_alterar)
-sec_tema.appendChild(div_tema)
-///////////////////////////////////fuçoes/////////////////////////////////////
+let tema = "aleatorio"
+function alterar(){
+    for(let id = 0; id < list_temas.length; id++){
+        let rad = document.getElementsByName("tema")[id]
+        if(rad.checked){
+            tema = rad.value
+        }
+    }
+    alert(`Aleterado para ${tema}`)
+    for(let i = 0; i < 4; i++){
+        let sec = document.getElementsByTagName("section")[i]
+        sec.innerHTML = ""
+    }
+    limite = 0
+    Create()
+}
+///////////////////////////////////fuçoes Game Play /////////////////////////////////////
 /*Create: pega as variaveis acima e cria a visualização das informações e adiciona no body atravez do event onload()*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function Create(){
@@ -77,8 +104,8 @@ function Create(){
     sec_palavra.appendChild(inp_button)
     sec_palavra.appendChild(br)
     paragrafo.innerHTML = "Click em uma das letra disponiveis, para ver se tem nessa palavra."
-    let ale = Math.floor(Math.random() * palavras.length)
-    palavra = palavras[ale]
+    let ale = Math.floor(Math.random() * palavras[tema].length)
+    palavra = palavras[tema][ale]
     //letras do alfabeto em input/buttons
     for(let l of alfa){
         let inp_letra = document.createElement("input")
@@ -101,8 +128,8 @@ function Create(){
             vogal.letra.push(a)
         }      
     }
-    
-    
+    sec_tema.innerHTML = "<h1>Temas:</h1>"
+    sec_tema.appendChild(div_tema)
     //criando a palavra secreta.
     for(let s in palavra){
         let div = document.createElement("div")
@@ -183,7 +210,7 @@ function GameOver(){
     restart.setAttribute("value", "REINICIAR")
     restart.setAttribute("onclick",'Create()')    
     
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 4; i++){
         let sec = document.getElementsByTagName("section")[i]
         sec.innerHTML = ""
     }
@@ -206,7 +233,7 @@ function Vitoria(){
     restart.setAttribute("value", "JOGAR NOVAMENTE")
     restart.setAttribute("onclick",'Create()')
 
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 4; i++){
         let sec = document.getElementsByTagName("section")[i]
         sec.innerHTML = ""
     }
