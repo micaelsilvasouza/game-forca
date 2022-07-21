@@ -42,9 +42,10 @@ sec_palavra.setAttribute("class", "exibir")
 let palavras = {
     aleatorio: ["Luta","Futebol","Corrida","Tiro","fortnite","cuphead","cj","kratos","gta","mario","sonic","dinheiro","carro","casa","sertanejo","Amarelo","amigo","amor","ave","avião","avó","balão","bolo","branco","cama","caneca","celular","céu","clube","copo","doce","elefante","escola","estojo","faca","foto","garfo","geleia","girafa","janela","limonada","mãe","meia","noite","óculos","ônibus","ovo","pai","peixe","parque","passaro","passarinho","pijama","rato","umbigo","acender","afilhado","agnóstico","áspero","assombração","asterisco","balaústre","caminho","champanhe","chiclete","chuveiro","coelho","contexto","covivência","coração","desalmado","eloquente","esfirra","esquerdo","exceção","filantropo","fugaz","feroz","frio","quente","congelado","derretido","resfriado","gripe","doente","gororroba","heterossexual","horrorizado","impacto","inócuo","independência","jocoso","laurel","asas","anjo","modernidade","oftalmologista","Otorrinolaringologista","panaceia","paralelepípedo","pororoca","prognóstico","quarentena","quimera","reportagem","sino","taciturno","temperança","tênue","ufanismo","viscera","absonâcia","açodamento","alvíssaras","astenia","babugem","beneplácito","cinesia","duidade","encômio","econômico","emprestimo","empoderar","empoderamento","empedernido","fleumático","gorjeta","gorjear","homizio","lancinante","macambúzio","mendocioso","nefelibata","odiento","ódio","pódio","troféu","apaixonar","jurar","amar","beijar","prejuízo","prejudicado","pacóvio","quintenssência","indêcencia","recôndito","ruflão","refrão","música","ouvir","escutar","cantar","dançar","sectário","útero","úbere","urze","vitupério","verossimilhança","xaropear","zênite","zeugma","xarope","zebra","player","game","afobado","amendoim","banheiro","caatinga","cachorro","campeonato","capricórnio","catapora","corrupção","crepúsculo","empenhado","esparadrapo","quardanpo","forca","galáxia","história","magenta","manjericão","mente","menta","moeda","oração","paçoca","palavra","vara","pedreiro","verbo","substantivo","pronome","adjetivo","conjunção","conectivo","conectado","interligado","gafanhoto","google","programar","digitar","criar","desenvolver","javascript","pytom","pneumonia","pneu","pulmão","rotatória","lombada","placa","motor","serenata","viola","violão","transeunte","trilogia","xicara"],
     animais: ["Animais"],
-    objetos: ["objetos"]
+    objetos: ["objetos"],
+    comida: ["fast food"]
 }
-let list_temas = ["aleatorio","objetos","animais"]
+let list_temas = ["aleatorio","objetos","animais", "comida"]
 let palavra = ""
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let image = document.createElement("img")
@@ -66,7 +67,7 @@ for(let i = 0; i < list_temas.length; i++){
     radio.setAttribute("name", "tema")
     radio.setAttribute("value", list_temas[i])
     if(i == 0){
-        radio.checked
+        radio.setAttribute("checked", true)
     }
     li.appendChild(radio)
     li.innerHTML += list_temas[i].toUpperCase()
@@ -105,7 +106,7 @@ function Create(){
     sec_palavra.appendChild(br)
     paragrafo.innerHTML = "Click em uma das letra disponiveis, para ver se tem nessa palavra."
     let ale = Math.floor(Math.random() * palavras[tema].length)
-    palavra = palavras[tema][ale]
+    palavra = "orelha grande"//palavras[tema][ale]
     //letras do alfabeto em input/buttons
     for(let l of alfa){
         let inp_letra = document.createElement("input")
@@ -128,13 +129,17 @@ function Create(){
             vogal.letra.push(a)
         }      
     }
-    sec_tema.innerHTML = "<h1>Temas:</h1>"
+    sec_tema.innerHTML = `<h1>Temas: ${tema.toUpperCase()}</h1>`
     sec_tema.appendChild(div_tema)
     //criando a palavra secreta.
-    for(let s in palavra){
+    for(let s of palavra){
         let div = document.createElement("div")
         div.setAttribute("class", "palavra")
-        div.innerHTML = "-"
+        if(s == " "){
+            div.innerHTML = "*"
+        }else{
+            div.innerHTML = "-"
+        }
         sec_palavra.appendChild(div)
     }
 
@@ -243,7 +248,12 @@ function Vitoria(){
     main.appendChild(paragrafo)
     for(let l of palavra){
         let div = document.createElement("div")
-        div.innerHTML = l.toUpperCase()
+        if(l == " "){
+            div.innerHTML = "*"
+        }else{
+           div.innerHTML = l.toUpperCase() 
+        }
+        
         div.setAttribute("class", "letra")
         main.appendChild(div)
     }

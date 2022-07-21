@@ -37,10 +37,11 @@ main{
 }
 
 section#temas{
+    background-color: lightgray;
     max-width: 300px;
     padding: 5px;
     margin: auto;
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 section#temas > h1{
@@ -48,7 +49,7 @@ section#temas > h1{
 }
 
 section#temas:hover{
-    background-color: lightgray;
+    background-color: rgb(173, 173, 173);
 }
 
 section#temas > div{
