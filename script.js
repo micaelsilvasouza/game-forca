@@ -44,10 +44,10 @@ let palavras = {
     animais: ["Animais", "abelha", "andorinha","babuíno","baleia","cachorro","camaleão","dromedário","ema","elefante","foca","flamingo","golfinho","guaxinim","hipopótamo","hiena","iguana","impala","jaguar","jacaré","kiwi","leão","lagarto","macaco","masuranho","naja","ovelha","papagaio","quati","raposa","rato","sardinha","tartaruga","tamanduá","urso","urubu","wallaby","xexéu","xaréu","yak","zebra","zebu"],
     objetos: ["objetos","ampulheta","anzol","candelabro","desfilibrador","carro","celular","mesa","abajur","freezer","geladeira","faca","colher","cadeira","mesa","modem","notebook","computador","pêndulo","spray","escova","pente","fantoche","bacia","balança","banco","bicicleta","berimbau","bidê","cabide"],
     comidas: ["fast food","sardinha","lasanha","peixe","ovo frito","chocolate","sobremesa","hamburgue","salada","batata frita","bife","maçâ","banana","amendoim","geleia","arroz","feijão","farofa","carne assada","pão","sanduiche","caramelho","pé de moleque","quebra queixo","uva","miojo","macarronada","arroz doce","estrogonofe"],
-    jogos: ["jogos"],
+    jogos: ["jogos", "assasins creed","tomb raider","counter strike","paladins","overwatch","battlefield","league of legends","dota","diablo","halo","outlas","the crew","Grand theft auto","max payne","katana zero","god of war","devil my cry","cuphead","horazon","need for speed","forza"],
     nomes: ["jacinto pinto","tomas turbano", "power quido","paula tejano","paulo bifricado", "neymar","juliana","Micael","Vinicius","mathesu","jose carlos", "cristiano Ronaldo", "Messi","galvão boeno", "juliana","ana julia","samara","Otavio","jaciara","jurema",'silvio santos',"faustão","rodrigo faro","Meria Joaquina","cirilo"]
 }
-let list_temas = ["aleatorio","objetos","animais", "comidas",/*"jogos"*/,"nomes"]
+let list_temas = ["aleatorio","objetos","animais", "comidas","jogos","nomes"]
 let palavra = ""
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let image = document.createElement("img")
