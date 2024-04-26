@@ -12,5 +12,19 @@
     <main id="jogo"></main>
     <script src="script.js"></script>
     <p id="credito">Criado por Micael Silva</p>
+
+
+    <script>
+        //Textando Ajax no server do Github
+        function logdoc() {
+            const xhttp = new XMLHttpRequest()
+            xhttp.onload = ()=>{
+                console.log("carregando Doc")
+                console.log(xhttp.responseText)
+            }
+            xhttp.open("GET", "text.txt")
+            xhttp.send()
+        }
+    </script>
 </body>
 </html>
