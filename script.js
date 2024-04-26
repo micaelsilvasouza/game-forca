@@ -85,7 +85,7 @@ function alterar(){
             tema = rad.value
         }
     }
-    alert(`Aleterado para ${tema}`)
+    alert(`Alterado para ${tema}`)
     for(let i = 0; i < 4; i++){
         let sec = document.getElementsByTagName("section")[i]
         sec.innerHTML = ""
